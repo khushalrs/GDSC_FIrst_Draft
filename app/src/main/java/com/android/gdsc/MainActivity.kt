@@ -53,17 +53,22 @@ class MainActivity : AppCompatActivity() {
 
         val dots = arrayOfNulls<ImageView>(dotsCount)
 
-        for (i in 0 until dotsCount) {
-            dots[i] = ImageView(this)
-            dots[i]?.setImageResource(R.drawable.inactive_dot)
-            val params = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            params.setMargins(8, 0, 8, 0)
-            slider.addView(dots[i], params)
+        if (dotsCount != 0) {
+            for (i in 0 until dotsCount) {
+                dots[i] = ImageView(this)
+                dots[i]?.setImageResource(R.drawable.inactive_dot)
+                val params = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                params.setMargins(8, 0, 8, 0)
+                slider.addView(dots[i], params)
+            }
+            dots[0]?.setImageResource(R.drawable.active_dot)
+        } else {
+            mBanner.visibility = View.GONE
+            slider.visibility = View.GONE
         }
-        dots[0]?.setImageResource(R.drawable.active_dot)
 
         mBanner.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
