@@ -10,8 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GDSCOfficial">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".Splash"
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +24,10 @@
             android:name=".SignInActivity"
             android:exported="false"
             android:noHistory="true" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
