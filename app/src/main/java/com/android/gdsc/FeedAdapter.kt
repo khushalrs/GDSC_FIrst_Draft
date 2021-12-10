@@ -34,11 +34,11 @@ class FeedAdapter(private val mContext: Context, private val mFeed: ArrayList<Fe
 
     override fun onBindViewHolder(post: Post, position: Int) {
         val feed = mFeed[position]
-
         Glide.with(mContext).load(feed.image).into(post.image)
         post.title.text = feed.title
         post.description.text = feed.description
         post.author.text = feed.author
+        Utils.setTypeface(mContext, post.title)
     }
 
     override fun getItemCount(): Int {

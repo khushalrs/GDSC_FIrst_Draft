@@ -20,12 +20,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash)
+
+        val appName = findViewById<TextView>(R.id.app_name)
+        Utils.setTypeface(this, appName)
 
         when (Utils.getBooleanPreference(this, "signed_in", false)) {
             true -> Handler(Looper.getMainLooper()).postDelayed({

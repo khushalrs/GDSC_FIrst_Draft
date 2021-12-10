@@ -22,6 +22,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val appName = findViewById<TextView>(R.id.header_title)
+        Utils.setTypeface(this, appName)
 
         val mRecyclerView = findViewById<View>(R.id.feed) as RecyclerView
         val mDBRef = FirebaseDatabase.getInstance().reference.child("posts")

@@ -17,6 +17,8 @@
 package com.android.gdsc
 
 import android.content.Context
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 
 object Utils {
 
@@ -36,5 +38,15 @@ object Utils {
         val editor = sharedPref.edit()
         editor.putBoolean(key, newValue)
         editor.apply()
+    }
+
+    @JvmStatic
+    fun setTypeface(context: Context, vararg views: TextView?) {
+        val typeface = ResourcesCompat.getFont(context, R.font.google_sans_medium)
+        for (view in views) {
+            if (view != null) {
+                view.typeface = typeface
+            }
+        }
     }
 }
