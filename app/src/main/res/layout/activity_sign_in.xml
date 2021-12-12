@@ -11,45 +11,41 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".SignInActivity">
+    tools:context=".Splash">
 
     <ImageView
         android:id="@+id/app_icon"
-        android:layout_width="192dp"
-        android:layout_height="154dp"
-        android:layout_gravity="center"
+        android:layout_width="196dp"
+        android:layout_height="196dp"
+        android:layout_marginBottom="64dp"
+        android:foregroundGravity="center"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_gdsc" />
-
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-32dp"
-        android:layout_marginBottom="96dp"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="?android:attr/textColorSecondary"
-        android:textSize="24sp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_in_button"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-64dp"
+        android:layout_gravity="center"
         android:drawableLeft="@drawable/ic_google"
         android:padding="12dp"
-        android:selectAllOnFocus="true"
-        android:text="@string/sign_in_with_google"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/textColorSecondary"
-        app:rippleColor="@color/textColorTertiary" />
-</LinearLayout>
+        app:rippleColor="@color/textColorTertiary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_icon" />
+</androidx.constraintlayout.widget.ConstraintLayout>
