@@ -41,6 +41,42 @@ object Utils {
     }
 
     @JvmStatic
+    fun getIntPreference(context: Context, key: String?, defaultValue: Int): Int {
+        val sharedPref = context.getSharedPreferences(
+            "settings", Context.MODE_PRIVATE
+        )
+        return sharedPref.getInt(key, defaultValue)
+    }
+
+    @JvmStatic
+    fun setIntPreference(context: Context, key: String?, newValue: Int) {
+        val sharedPref = context.getSharedPreferences(
+            "settings", Context.MODE_PRIVATE
+        )
+        val editor = sharedPref.edit()
+        editor.putInt(key, newValue)
+        editor.apply()
+    }
+
+    @JvmStatic
+    fun getStringPreference(context: Context, key: String?, defaultValue: String): String? {
+        val sharedPref = context.getSharedPreferences(
+            "settings", Context.MODE_PRIVATE
+        )
+        return sharedPref.getString(key, defaultValue)
+    }
+
+    @JvmStatic
+    fun setStringPreference(context: Context, key: String?, newValue: String) {
+        val sharedPref = context.getSharedPreferences(
+            "settings", Context.MODE_PRIVATE
+        )
+        val editor = sharedPref.edit()
+        editor.putString(key, newValue)
+        editor.apply()
+    }
+
+    @JvmStatic
     fun setTypeface(context: Context, vararg views: TextView?) {
         val typeface = ResourcesCompat.getFont(context, R.font.google_sans_medium)
         for (view in views) {
