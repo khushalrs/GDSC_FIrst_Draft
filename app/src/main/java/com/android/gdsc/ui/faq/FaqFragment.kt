@@ -16,13 +16,21 @@
 
 package com.android.gdsc.ui.faq
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.gdsc.databinding.FragmentFaqBinding
+import com.android.gdsc.faq.Faq
+import com.android.gdsc.faq.FaqAdapter
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class FaqFragment : Fragment() {
 
@@ -41,6 +49,30 @@ class FaqFragment : Fragment() {
         val root: View = binding.root
 
         mContext = requireActivity()
+
+        val faqView = binding.faq
+        val faqDBRef = FirebaseDatabase.getInstance().reference.child("faq")
+        val faq = ArrayList<Faq>()
+        val faqAdapter = FaqAdapter(mContext, faq)
+
+        faqView.setHasFixedSize(true)
+        faqView.layoutManager = LinearLayoutManager(mContext)
+        faqView.adapter = faqAdapter
+        faqDBRef.keepSynced(true)
+        faqDBRef.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val data = dataSnapshot.getValue(Faq::class.java)
+                    if (data != null) {
+                        faq.add(data)
+                    }
+                }
+                faqAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
 
         return root
     }
