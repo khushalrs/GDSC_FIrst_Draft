@@ -21,4 +21,5 @@ class Feed {
     var title: String? = null
     var description: String? = null
     var author: String? = null
+    var url: String? = null
 }
