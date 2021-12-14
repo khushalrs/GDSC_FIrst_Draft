@@ -14,4 +14,5 @@
 <resources>
     <string name="app_name">GDSC</string>
     <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_failed">Google Sign In failed. Please try again.</string>
 </resources>

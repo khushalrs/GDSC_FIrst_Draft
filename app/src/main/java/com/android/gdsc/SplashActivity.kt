@@ -23,10 +23,10 @@ import android.os.Looper
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class Splash : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.splash)
+        setContentView(R.layout.activity_splash)
 
         val appName = findViewById<TextView>(R.id.app_name)
         Utils.setTypeface(this, appName)

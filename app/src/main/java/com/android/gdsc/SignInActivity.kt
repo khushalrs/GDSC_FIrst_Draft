@@ -17,11 +17,10 @@
 package com.android.gdsc
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -76,17 +75,17 @@ class SignInActivity : AppCompatActivity() {
         mFirebaseAuth.signInWithCredential(credential)
             .addOnSuccessListener(this) {
                 Utils.setBooleanPreference(this, "signed_in", true)
+                Utils.setStringPreference(this, "profile_image", (account.photoUrl!!).toString())
+                Utils.setStringPreference(this, "profile_email", (account.email!!))
+                Utils.setStringPreference(this, "profile_display_name", (account.displayName!!))
                 startActivity(Intent(this, MainActivity::class.java))
-                mProfileImage = account.photoUrl!!
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Google Sign In failed. Please try again", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.sign_in_failed), Toast.LENGTH_SHORT).show()
             }
     }
 
     companion object {
         private const val RC_SIGN_IN = 9001
-
-        lateinit var mProfileImage: Uri
     }
 }

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GDSCOfficial">
         <activity
-            android:name=".Splash"
+            android:name=".SplashActivity"
             android:exported="true"
             android:noHistory="true">
             <intent-filter>

@@ -18,7 +18,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".Splash">
+    android:animateLayoutChanges="true"
+    tools:context=".SignInActivity">
 
     <ImageView
         android:id="@+id/app_icon"
@@ -40,12 +41,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:drawableLeft="@drawable/ic_google"
-        android:padding="12dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/textColorSecondary"
-        app:rippleColor="@color/textColorTertiary"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        android:paddingVertical="4dp"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@color/textColorPrimary"
+        app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/app_icon"
+        app:layout_constraintVertical_bias="0.0"
+        app:rippleColor="@color/textColorTertiary" />
 </androidx.constraintlayout.widget.ConstraintLayout>
