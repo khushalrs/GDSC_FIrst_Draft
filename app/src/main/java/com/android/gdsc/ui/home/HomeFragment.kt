@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
                 }
                 mBannerCount = snapshot.childrenCount.toInt()
                 bannerAdapter.notifyDataSetChanged()
-                setBannerDots()
+                if (_binding != null) setBannerDots()
             }
 
             override fun onCancelled(error: DatabaseError) {}
@@ -103,6 +103,7 @@ class HomeFragment : Fragment() {
         if (mBannerCount == 0) {
             bannerView.visibility = View.GONE
             slider.visibility = View.GONE
+            return
         } else {
             bannerView.visibility = View.VISIBLE
             slider.visibility = View.VISIBLE
