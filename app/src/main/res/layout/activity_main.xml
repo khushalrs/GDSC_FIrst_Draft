@@ -36,6 +36,8 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:padding="12dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_settings" />
 
         <include layout="@layout/header" />
@@ -47,6 +49,8 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:padding="12dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@mipmap/ic_launcher" />
     </RelativeLayout>
 

@@ -15,4 +15,8 @@
     <string name="app_name">GDSC</string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="sign_in_failed">Google Sign In failed. Please try again.</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="name">Name: %s</string>
+    <string name="email">Email: %s</string>
+    <string name="points">Points: %d</string>
 </resources>
