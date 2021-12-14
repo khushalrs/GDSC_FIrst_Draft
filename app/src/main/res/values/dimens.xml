@@ -13,8 +13,8 @@
 -->
 <resources>
     <!-- Homepage cards size and padding -->
-    <dimen name="contextual_card_top_margin">16dp</dimen>
+    <dimen name="contextual_card_top_margin">8dp</dimen>
     <dimen name="contextual_card_bottom_margin">8dp</dimen>
-    <dimen name="contextual_card_side_margin">8dp</dimen>
+    <dimen name="contextual_card_side_margin">16dp</dimen>
     <dimen name="contextual_card_corner_radius">8dp</dimen>
 </resources>
