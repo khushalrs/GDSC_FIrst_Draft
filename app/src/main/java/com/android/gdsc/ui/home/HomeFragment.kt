@@ -108,7 +108,7 @@ class HomeFragment : Fragment() {
             slider.visibility = View.VISIBLE
             for (i in 0 until mBannerCount) {
                 dots[i] = ImageView(mContext)
-                dots[i]?.setImageResource(R.drawable.inactive_dot)
+                dots[i]?.setImageResource(R.drawable.ic_inactive_dot)
                 val params = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
                 params.setMargins(8, 0, 8, 0)
                 slider.addView(dots[i], params)
             }
-            dots[0]?.setImageResource(R.drawable.active_dot)
+            dots[0]?.setImageResource(R.drawable.ic_active_dot)
         }
 
         bannerView.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -129,9 +129,9 @@ class HomeFragment : Fragment() {
 
             override fun onPageSelected(position: Int) {
                 for (i in 0 until mBannerCount) {
-                    dots[i]?.setImageResource(R.drawable.inactive_dot)
+                    dots[i]?.setImageResource(R.drawable.ic_inactive_dot)
                 }
-                dots[position]?.setImageResource(R.drawable.active_dot)
+                dots[position]?.setImageResource(R.drawable.ic_active_dot)
             }
 
             override fun onPageScrollStateChanged(state: Int) {}

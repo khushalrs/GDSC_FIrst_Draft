@@ -31,9 +31,6 @@ class SplashActivity : AppCompatActivity() {
 
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
 
-        val appName = findViewById<TextView>(R.id.app_name)
-        Utils.setTypeface(this, appName)
-
         when (Utils.getBooleanPreference(this, "signed_in", false)) {
             true -> Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this, MainActivity::class.java))

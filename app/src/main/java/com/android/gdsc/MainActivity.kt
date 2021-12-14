@@ -41,9 +41,6 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        val appName = binding.include.headerTitle
-        Utils.setTypeface(this, appName)
-
         val profileImage = binding.profile
         val profileImageUri = Utils.getStringPreference(this, "profile_image", "")
         Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileImage)

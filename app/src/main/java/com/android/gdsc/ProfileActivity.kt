@@ -48,14 +48,10 @@ class ProfileActivity : AppCompatActivity() {
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
-        val appName = findViewById<TextView>(R.id.header_title)
-
         val profileImage = findViewById<View>(R.id.profile_image) as ImageView
         val profileImageUri = Utils.getStringPreference(this, "profile_image", "")
         Glide.with(this).load(Uri.parse(profileImageUri?.replace("s96-c", "s400-c"))).circleCrop()
             .into(profileImage)
-
-        val profileHeader = findViewById<View>(R.id.profile_header) as TextView
 
         val profileName = findViewById<View>(R.id.profile_display_name) as TextView
         val name = Utils.getStringPreference(this, "profile_display_name", "")
@@ -70,17 +66,8 @@ class ProfileActivity : AppCompatActivity() {
         profilePoints.text = getString(R.string.points, points)
 
         val signOutButton = findViewById<MaterialButton>(R.id.sign_out_button)
+        signOutButton.text = " " + getString(R.string.sign_out)
         signOutButton.setOnClickListener { signOut() }
-
-        Utils.setTypeface(
-            this,
-            appName,
-            profileHeader,
-            profileName,
-            profileEmail,
-            profilePoints,
-            signOutButton
-        )
     }
 
     private fun signOut() {

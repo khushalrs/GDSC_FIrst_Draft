@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2021 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
+     Copyright (C) 2018 Havoc-OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,15 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- Homepage cards size and padding -->
-    <dimen name="contextual_card_top_margin">8dp</dimen>
-    <dimen name="contextual_card_bottom_margin">8dp</dimen>
-    <dimen name="contextual_card_side_margin">16dp</dimen>
-    <dimen name="contextual_card_corner_radius">8dp</dimen>
-    <dimen name="contextual_card_vertical_padding">16dp</dimen>
-    <dimen name="contextual_card_horizontal_padding">24dp</dimen>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="true"
+    android:dither="true" >
 
-    <dimen name="scrollview_bottom_margin">64dp</dimen>
-
-</resources>
+    <size android:height="10dp" android:width="10dp"/>
+    <solid android:color="@color/colorAccent"/>
+</shape>

@@ -36,11 +36,11 @@
             android:layout_height="48dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:padding="12dp"
-            android:clickable="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_settings"
-            android:focusable="true" />
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="12dp"
+            android:src="@drawable/ic_settings" />
 
         <include
             android:id="@+id/include"
@@ -52,11 +52,11 @@
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:padding="12dp"
-            android:clickable="true"
             android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@mipmap/ic_launcher"
-            android:focusable="true" />
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="12dp"
+            android:src="@mipmap/ic_launcher" />
     </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -64,6 +64,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:itemTextAppearanceActive="@style/SubtitleStyleMedium"
+        app:itemTextAppearanceInactive="@style/SubtitleStyleMedium"
         app:itemIconTint="@color/tab_icon_color"
         app:itemTextColor="@color/tab_icon_color"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -75,14 +75,4 @@ object Utils {
         editor.putString(key, newValue)
         editor.apply()
     }
-
-    @JvmStatic
-    fun setTypeface(context: Context, vararg views: TextView?) {
-        val typeface = ResourcesCompat.getFont(context, R.font.google_sans_medium)
-        for (view in views) {
-            if (view != null) {
-                view.typeface = typeface
-            }
-        }
-    }
 }

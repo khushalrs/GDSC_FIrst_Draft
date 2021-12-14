@@ -44,7 +44,6 @@ class FeedAdapter(private val context: Context, private val feed: ArrayList<Feed
         post.title.text = feed.title
         post.description.text = feed.description
         post.author.text = feed.author
-        Utils.setTypeface(context, post.title, post.author)
 
         if (feed.url != null) {
             post.card.setOnClickListener {

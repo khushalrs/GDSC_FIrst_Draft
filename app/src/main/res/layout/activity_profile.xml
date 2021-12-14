@@ -1,112 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2021 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+
           http://www.apache.org/licenses/LICENSE-2.0
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:orientation="vertical"
     tools:context=".ProfileActivity">
 
     <include
         android:id="@+id/include"
-        layout="@layout/header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/header" />
 
-    <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="196dp"
-        android:layout_height="196dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginVertical="32dp"
-        android:padding="12dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
-
-    <com.google.android.material.card.MaterialCardView
-        style="@style/ContextualCardStyle"
-        android:id="@+id/profile"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image">
+        android:layout_height="match_parent"
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="24dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/profile_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Welcome to GDSC!"
-                android:textSize="18sp"
-                android:textColor="@color/textColorPrimary" />
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="196dp"
+                android:layout_height="196dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="32dp"
+                android:padding="12dp"
+                android:src="@mipmap/ic_launcher" />
 
-            <TextView
-                android:id="@+id/profile_display_name"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile"
+                style="@style/ContextualCardStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/textColorSecondary"
-                android:textSize="14sp" />
+                android:layout_marginHorizontal="16dp">
 
-            <TextView
-                android:id="@+id/profile_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/textColorSecondary"
-                android:textSize="14sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                    android:paddingVertical="@dimen/contextual_card_vertical_padding">
 
-            <TextView
-                android:id="@+id/profile_points"
-                android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/profile_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/welcome_message"
+                        android:textAppearance="@style/TitleStyle" />
+
+                    <TextView
+                        android:id="@+id/profile_display_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/SubtitleStyleMedium" />
+
+                    <TextView
+                        android:id="@+id/profile_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/SubtitleStyleMedium" />
+
+                    <TextView
+                        android:id="@+id/profile_points"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/SubtitleStyleMedium" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sign_out_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/textColorSecondary"
-                android:textSize="14sp"
-                android:text="69" />
+                android:layout_gravity="center"
+                android:layout_marginVertical="56dp"
+                android:drawableLeft="@drawable/ic_logout"
+                android:fontFamily="@font/google_sans_medium"
+                android:paddingVertical="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="12dp"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textColor="@color/textColorPrimary"
+                app:cornerRadius="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/app_icon"
+                app:layout_constraintVertical_bias="0.0"
+                app:rippleColor="@color/textColorTertiary" />
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/sign_out_button"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="4dp"
-        android:textAppearance="?android:attr/textAppearance"
-        android:textColor="@color/textColorPrimary"
-        android:text="@string/sign_out"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile"
-        app:rippleColor="@color/textColorTertiary" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

@@ -48,7 +48,6 @@ class SignInActivity : AppCompatActivity() {
 
         val signInButton = findViewById<MaterialButton>(R.id.sign_in_button)
         signInButton.text = " " + getString(R.string.sign_in_with_google)
-        Utils.setTypeface(this, signInButton)
         signInButton.setOnClickListener { signIn() }
     }
 

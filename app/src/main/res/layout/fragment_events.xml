@@ -14,10 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/scrollview_bottom_margin"
     android:animateLayoutChanges="true"
     android:requiresFadingEdge="vertical"
     android:scrollbars="vertical"
@@ -26,7 +27,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="56dp" />
-</androidx.core.widget.NestedScrollView>
+        android:layout_height="match_parent" />
+</ScrollView>
