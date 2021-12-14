@@ -16,13 +16,21 @@
 
 package com.android.gdsc.ui.events
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.gdsc.databinding.FragmentEventsBinding
+import com.android.gdsc.event.Event
+import com.android.gdsc.event.EventAdapter
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class EventsFragment : Fragment() {
 
@@ -41,6 +49,30 @@ class EventsFragment : Fragment() {
         val root: View = binding.root
 
         mContext = requireActivity()
+
+        val eventView = binding.event
+        val eventDBRef = FirebaseDatabase.getInstance().reference.child("events")
+        val event = ArrayList<Event>()
+        val eventAdapter = EventAdapter(mContext, event)
+
+        eventView.setHasFixedSize(true)
+        eventView.layoutManager = LinearLayoutManager(mContext)
+        eventView.adapter = eventAdapter
+        eventDBRef.keepSynced(true)
+        eventDBRef.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val image = dataSnapshot.getValue(Event::class.java)
+                    if (image != null) {
+                        event.add(image)
+                    }
+                }
+                eventAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
 
         return root
     }
