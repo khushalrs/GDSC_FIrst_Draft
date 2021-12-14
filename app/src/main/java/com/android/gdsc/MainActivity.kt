@@ -17,17 +17,19 @@
 package com.android.gdsc
 
 import android.annotation.SuppressLint
-import android.graphics.BitmapFactory
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -35,7 +37,7 @@ import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
-    private var images = intArrayOf()
+    private var mBannerCount: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,21 +46,58 @@ class MainActivity : AppCompatActivity() {
         val appName = findViewById<TextView>(R.id.header_title)
         Utils.setTypeface(this, appName)
 
-        val mRecyclerView = findViewById<View>(R.id.feed) as RecyclerView
-        val mDBRef = FirebaseDatabase.getInstance().reference.child("posts")
-        val mFeed = ArrayList<Feed>()
-        val mFeedAdapter = FeedAdapter(this, mFeed)
-        val mBanner = findViewById<ViewPager>(R.id.banner)
+//        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
 
-        mBanner.adapter = BannerAdapter(this, images)
+        updateViews()
+    }
 
+    private fun setAvatar() {
+        val profileImage = findViewById<View>(R.id.profile) as ImageView
+        val profileImageUri = Utils.getStringPreference(this, "profile_image", "")
+        Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileImage)
+        profileImage.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+    }
+
+    private fun setBanner() {
+        val bannerView = findViewById<View>(R.id.banner) as ViewPager
+        val bannerDBRef = FirebaseDatabase.getInstance().reference.child("banners")
+        val banner = ArrayList<Banner>()
+        val bannerAdapter = BannerAdapter(this, banner)
+
+        bannerView.adapter = bannerAdapter
+        bannerDBRef.keepSynced(true)
+        bannerDBRef.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val image = dataSnapshot.getValue(Banner::class.java)
+                    if (image != null) {
+                        banner.add(image)
+                    }
+                }
+                mBannerCount = snapshot.childrenCount.toInt()
+                bannerAdapter.notifyDataSetChanged()
+                setBannerDots()
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
+
+    private fun setBannerDots() {
+        val bannerView = findViewById<View>(R.id.banner) as ViewPager
         val slider = findViewById<LinearLayout>(R.id.slider)
-        val dotsCount = images.size
+        val dots = arrayOfNulls<ImageView>(mBannerCount)
 
-        val dots = arrayOfNulls<ImageView>(dotsCount)
-
-        if (dotsCount != 0) {
-            for (i in 0 until dotsCount) {
+        if (mBannerCount == 0) {
+            bannerView.visibility = View.GONE
+            slider.visibility = View.GONE
+        } else {
+            bannerView.visibility = View.VISIBLE
+            slider.visibility = View.VISIBLE
+            for (i in 0 until mBannerCount) {
                 dots[i] = ImageView(this)
                 dots[i]?.setImageResource(R.drawable.inactive_dot)
                 val params = LinearLayout.LayoutParams(
@@ -69,12 +108,9 @@ class MainActivity : AppCompatActivity() {
                 slider.addView(dots[i], params)
             }
             dots[0]?.setImageResource(R.drawable.active_dot)
-        } else {
-            mBanner.visibility = View.GONE
-            slider.visibility = View.GONE
         }
 
-        mBanner.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        bannerView.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -83,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                for (i in 0 until dotsCount) {
+                for (i in 0 until mBannerCount) {
                     dots[i]?.setImageResource(R.drawable.inactive_dot)
                 }
                 dots[position]?.setImageResource(R.drawable.active_dot)
@@ -91,30 +127,37 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageScrollStateChanged(state: Int) {}
         })
+    }
 
-        mRecyclerView.setHasFixedSize(true)
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
-        mRecyclerView.adapter = mFeedAdapter
+    private fun setFeed() {
+        val feedView = findViewById<View>(R.id.feed) as RecyclerView
+        val feedDBRef = FirebaseDatabase.getInstance().reference.child("posts")
+        val feed = ArrayList<Feed>()
+        val feedAdapter = FeedAdapter(this, feed)
 
-        mDBRef.addValueEventListener(object : ValueEventListener {
+        feedView.setHasFixedSize(true)
+        feedView.layoutManager = LinearLayoutManager(this)
+        feedView.adapter = feedAdapter
+        feedDBRef.keepSynced(true)
+        feedDBRef.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot in snapshot.children) {
                     val post = dataSnapshot.getValue(Feed::class.java)
                     if (post != null) {
-                        mFeed.add(post)
+                        feed.add(post)
                     }
                 }
-                mFeedAdapter.notifyDataSetChanged()
+                feedAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {}
         })
+    }
 
-        val profileImage = findViewById<View>(R.id.profile) as ImageView
-        val avatar = BitmapFactory.decodeResource(resources, R.drawable.avatar)
-        val roundDrawable = RoundedBitmapDrawableFactory.create(resources, avatar)
-        roundDrawable.isCircular = true
-        profileImage.setImageDrawable(roundDrawable)
+    private fun updateViews() {
+        setAvatar()
+        setBanner()
+        setFeed()
     }
 }
