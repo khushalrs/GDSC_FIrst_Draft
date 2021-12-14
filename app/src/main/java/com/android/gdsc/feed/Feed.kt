@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.gdsc
+package com.android.gdsc.feed
 
 class Feed {
     var image: String? = null

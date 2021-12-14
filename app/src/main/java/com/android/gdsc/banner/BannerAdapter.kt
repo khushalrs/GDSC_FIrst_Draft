@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.gdsc
+package com.android.gdsc.banner
 
 import android.content.Context
 import android.content.Intent
@@ -25,6 +25,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.viewpager.widget.PagerAdapter
+import com.android.gdsc.R
 import com.bumptech.glide.Glide
 
 class BannerAdapter(private val context: Context, private val banner: ArrayList<Banner>) :

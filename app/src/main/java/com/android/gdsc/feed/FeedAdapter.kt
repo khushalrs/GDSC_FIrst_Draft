@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.gdsc
+package com.android.gdsc.feed
 
 import android.content.Context
 import android.content.Intent
@@ -25,6 +25,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.gdsc.R
+import com.android.gdsc.Utils
 import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 
