@@ -22,11 +22,14 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
 
         val appName = findViewById<TextView>(R.id.app_name)
         Utils.setTypeface(this, appName)

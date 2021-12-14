@@ -62,6 +62,7 @@ class FaqFragment : Fragment() {
         faqDBRef.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
+                faq.clear()
                 for (dataSnapshot in snapshot.children) {
                     val data = dataSnapshot.getValue(Faq::class.java)
                     if (data != null) {

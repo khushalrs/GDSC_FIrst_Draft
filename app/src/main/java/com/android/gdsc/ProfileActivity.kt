@@ -87,7 +87,7 @@ class ProfileActivity : AppCompatActivity() {
         mGoogleSignInClient.signOut()
             .addOnCompleteListener {
                 Utils.setBooleanPreference(this, "signed_in", false)
-                startActivity(Intent(this, SplashActivity::class.java))
+                startActivity(Intent(this, SignInActivity::class.java))
                 finish()
             }
     }

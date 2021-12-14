@@ -62,6 +62,7 @@ class EventsFragment : Fragment() {
         eventDBRef.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
+                event.clear()
                 for (dataSnapshot in snapshot.children) {
                     val image = dataSnapshot.getValue(Event::class.java)
                     if (image != null) {

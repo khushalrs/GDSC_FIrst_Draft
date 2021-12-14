@@ -57,8 +57,6 @@ class HomeFragment : Fragment() {
 
         mContext = requireActivity()
 
-//        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-
         updateViews()
 
         return root
@@ -80,6 +78,7 @@ class HomeFragment : Fragment() {
         bannerDBRef.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
+                banner.clear()
                 for (dataSnapshot in snapshot.children) {
                     val image = dataSnapshot.getValue(Banner::class.java)
                     if (image != null) {
@@ -152,6 +151,7 @@ class HomeFragment : Fragment() {
         feedDBRef.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
+                feed.clear()
                 for (dataSnapshot in snapshot.children) {
                     val post = dataSnapshot.getValue(Feed::class.java)
                     if (post != null) {
