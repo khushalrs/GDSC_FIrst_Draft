@@ -15,6 +15,20 @@
      limitations under the License.
 -->
 <resources>
+    <style name="FourColorIndeterminateProgressBar">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateDrawable">@drawable/fourcolor_progress_bar</item>
+        <item name="android:paddingStart">88dp</item>
+        <item name="android:paddingEnd">88dp</item>
+        <item name="android:indeterminateTint">@null</item>
+        <item name="android:indeterminateTintMode">@null</item>
+        <item name="minWidth">76dip</item>
+        <item name="maxWidth">76dip</item>
+        <item name="minHeight">76dip</item>
+        <item name="maxHeight">76dip</item>
+    </style>
+
     <style name="ContextualCardStyle">
         <item name="android:layout_marginTop">@dimen/contextual_card_top_margin</item>
         <item name="android:layout_marginBottom">@dimen/contextual_card_bottom_margin</item>

@@ -34,7 +34,6 @@ import com.google.firebase.database.ValueEventListener
 
 class EventsFragment : Fragment() {
 
-    private var _binding: FragmentEventsBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mContext: Context
@@ -42,7 +41,7 @@ class EventsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
 
         _binding = FragmentEventsBinding.inflate(inflater, container, false)
@@ -50,10 +49,21 @@ class EventsFragment : Fragment() {
 
         mContext = requireActivity()
 
+        updateViews()
+
+        return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun setEvents() {
         val eventView = binding.event
         val eventDBRef = FirebaseDatabase.getInstance().reference.child("events")
         val event = ArrayList<Event>()
-        val eventAdapter = EventAdapter(mContext, event)
+        val eventAdapter = EventAdapter(this, mContext, event)
 
         eventView.setHasFixedSize(true)
         eventView.layoutManager = LinearLayoutManager(mContext)
@@ -74,12 +84,24 @@ class EventsFragment : Fragment() {
 
             override fun onCancelled(error: DatabaseError) {}
         })
-
-        return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun updateViews() {
+        hideProgressBar(this, false)
+        setEvents()
+    }
+
+    companion object {
+        var _binding: FragmentEventsBinding? = null
+
+        fun hideProgressBar(eventsFragment: EventsFragment, hide: Boolean) {
+            val progressBar = eventsFragment.binding.progressBar
+            val scrollView = eventsFragment.binding.scrollView
+
+            if (progressBar.visibility != View.VISIBLE) return
+
+            progressBar.visibility = if (hide) View.GONE else View.VISIBLE
+            scrollView.visibility = if (hide) View.VISIBLE else View.INVISIBLE
+        }
     }
 }

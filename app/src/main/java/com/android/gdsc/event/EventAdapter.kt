@@ -16,8 +16,10 @@
 
 package com.android.gdsc.event
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -25,9 +27,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.gdsc.R
+import com.android.gdsc.ui.events.EventsFragment
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 
-class EventAdapter(private val context: Context, private val event: ArrayList<Event>) :
+class EventAdapter(
+    private val eventsFragment: EventsFragment,
+    private val context: Context,
+    private val event: ArrayList<Event>,
+) :
     RecyclerView.Adapter<EventAdapter.EventView>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventView {
@@ -35,9 +46,37 @@ class EventAdapter(private val context: Context, private val event: ArrayList<Ev
         return EventView(v)
     }
 
-    override fun onBindViewHolder(eventView: EventView, position: Int) {
+    override fun onBindViewHolder(
+        eventView: EventView,
+        @SuppressLint("RecyclerView") position: Int,
+    ) {
         val event = event[position]
-        Glide.with(context).load(event.image).into(eventView.image)
+        Glide.with(context)
+            .load(event.image)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean,
+                ): Boolean {
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean,
+                ): Boolean {
+                    if (position == itemCount - 1 && EventsFragment._binding != null) {
+                        EventsFragment.hideProgressBar(eventsFragment, true)
+                    }
+                    return false
+                }
+            })
+            .into(eventView.image)
 
         if (event.url != null) {
             eventView.image.setOnClickListener {

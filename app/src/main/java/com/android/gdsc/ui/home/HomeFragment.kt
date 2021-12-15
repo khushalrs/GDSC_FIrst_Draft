@@ -40,7 +40,6 @@ import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var mBannerCount: Int = 0
 
@@ -49,7 +48,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -123,7 +122,7 @@ class HomeFragment : Fragment() {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int
+                positionOffsetPixels: Int,
             ) {
             }
 
@@ -142,7 +141,7 @@ class HomeFragment : Fragment() {
         val feedView = binding.feed
         val feedDBRef = FirebaseDatabase.getInstance().reference.child("posts")
         val feed = ArrayList<Feed>()
-        val feedAdapter = FeedAdapter(mContext, feed)
+        val feedAdapter = FeedAdapter(this, mContext, feed)
 
         feedView.setHasFixedSize(true)
         feedView.layoutManager = LinearLayoutManager(mContext)
@@ -166,7 +165,22 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateViews() {
+        hideProgressBar(this, false)
         setBanner()
         setFeed()
+    }
+
+    companion object {
+        var _binding: FragmentHomeBinding? = null
+
+        fun hideProgressBar(homeFragment: HomeFragment, hide: Boolean) {
+            val progressBar = homeFragment.binding.progressBar
+            val scrollView = homeFragment.binding.scrollView
+
+            if (progressBar.visibility != View.VISIBLE) return
+
+            progressBar.visibility = if (hide) View.GONE else View.VISIBLE
+            scrollView.visibility = if (hide) View.VISIBLE else View.INVISIBLE
+        }
     }
 }
