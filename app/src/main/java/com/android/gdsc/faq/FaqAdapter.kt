@@ -24,7 +24,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.gdsc.R
-import com.android.gdsc.Utils
 import com.google.android.material.card.MaterialCardView
 
 class FaqAdapter(private val context: Context, private val faq: ArrayList<Faq>) :

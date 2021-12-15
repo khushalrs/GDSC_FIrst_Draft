@@ -17,8 +17,6 @@
 package com.android.gdsc
 
 import android.content.Context
-import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 
 object Utils {
 

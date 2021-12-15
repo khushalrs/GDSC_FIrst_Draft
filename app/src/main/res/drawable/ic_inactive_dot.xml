@@ -15,10 +15,12 @@
      limitations under the License.
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:dither="true"
     android:shape="oval"
-    android:useLevel="true"
-    android:dither="true" >
+    android:useLevel="true">
 
-    <size android:height="8dp" android:width="8dp"/>
-    <solid android:color="@color/textColorTertiary"/>
+    <size
+        android:width="8dp"
+        android:height="8dp" />
+    <solid android:color="@color/textColorTertiary" />
 </shape>

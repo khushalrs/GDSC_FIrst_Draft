@@ -23,9 +23,7 @@
     android:orientation="vertical"
     tools:context=".ProfileActivity">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/header" />
+    <include layout="@layout/header" />
 
     <ScrollView
         android:layout_width="match_parent"

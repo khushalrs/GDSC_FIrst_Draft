@@ -42,9 +42,7 @@
             android:padding="12dp"
             android:src="@drawable/ic_settings" />
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/header" />
+        <include layout="@layout/header" />
 
         <ImageView
             android:id="@+id/profile"
@@ -64,9 +62,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
+        app:itemIconTint="@color/tab_icon_color"
         app:itemTextAppearanceActive="@style/SubtitleStyleMedium"
         app:itemTextAppearanceInactive="@style/SubtitleStyleMedium"
-        app:itemIconTint="@color/tab_icon_color"
         app:itemTextColor="@color/tab_icon_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

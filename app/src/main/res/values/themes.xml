@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Theme.GDSCOfficial" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorPrimary">@color/colorPrimary</item>
