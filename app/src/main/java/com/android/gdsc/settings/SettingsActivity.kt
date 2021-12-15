@@ -14,26 +14,17 @@
  * limitations under the License.
  */
 
-package com.android.gdsc
+package com.android.gdsc.settings
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 
-class SplashActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class SettingsActivity : FragmentActivity() {
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-
-        when (Utils.getBooleanPreference(this, "signed_in", false)) {
-            true -> Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this, MainActivity::class.java))
-            }, 1000)
-            false -> Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this, SignInActivity::class.java))
-            }, 1000)
-        }
+        supportFragmentManager.beginTransaction().replace(
+            android.R.id.content,
+            SettingsFragment()
+        ).commit()
     }
 }

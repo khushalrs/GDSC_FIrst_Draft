@@ -26,4 +26,8 @@
     <string name="title_events">Events</string>
     <string name="title_faq">FAQ</string>
     <string name="welcome_message">Welcome to GDSC MPSTME!</string>
+    <string name="app_theme_title">Theme</string>
+    <string name="app_theme_system">System Default</string>
+    <string name="app_theme_light">Light</string>
+    <string name="app_theme_dark">Dark</string>
 </resources>

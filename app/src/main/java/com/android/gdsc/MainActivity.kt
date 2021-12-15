@@ -17,12 +17,14 @@
 package com.android.gdsc
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.gdsc.databinding.ActivityMainBinding
+import com.android.gdsc.settings.SettingsActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -46,6 +48,18 @@ class MainActivity : AppCompatActivity() {
         Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileImage)
         profileImage.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
+        binding.settings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        when (newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> {} // Night mode is not active, we're using the light theme
+            Configuration.UI_MODE_NIGHT_YES -> {} // Night mode is active, we're using dark theme
         }
     }
 }
