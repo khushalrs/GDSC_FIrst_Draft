@@ -21,7 +21,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/gdsclogo"
+                android:src="@drawable/ic_gdsc"
                 android:padding="8dp"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_image"/>

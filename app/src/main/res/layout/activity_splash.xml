@@ -10,7 +10,7 @@
         android:layout_width="231dp"
         android:layout_height="193dp"
         android:background="@color/white"
-        android:src="@drawable/gdsclogo"
+        android:src="@drawable/ic_gdsc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

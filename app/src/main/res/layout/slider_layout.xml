@@ -16,8 +16,7 @@
             android:id="@+id/sliderImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorAccent"
-            android:src="@drawable/gdsclogo"
+            android:scaleType="centerCrop"
             android:layout_gravity="center" />
     </androidx.cardview.widget.CardView>
 

@@ -34,7 +34,7 @@ public class FAQFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_f_a_q, container, false);
+        View v = inflater.inflate(R.layout.fragment_faq, container, false);
         thiscontext = container.getContext();
         rc = v.findViewById(R.id.recylcer_faq);
         return v;

@@ -21,7 +21,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ImageViewHol
     @Override
     public EventAdapter.ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.recycler_events, parent, false);
+        View view = layoutInflater.inflate(R.layout.event, parent, false);
         return new ImageViewHolder(view);
     }
 

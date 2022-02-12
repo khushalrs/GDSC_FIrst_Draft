@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/drawable/ic_gdsc.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/drawable/ic_google.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/drawable/nav_item_color.xml" value="0.2537037037037037" />
         <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/drawable/rounded_corner.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Khushal/Android/GDSCFIrstDraft/app/src/main/res/layout/activity_login.xml" value="0.25" />

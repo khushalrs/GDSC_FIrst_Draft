@@ -53,15 +53,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.page_1:
+                    case R.id.navigation_home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new HomeFragment()).commit();
                         return true;
 
-                    case R.id.page_2:
+                    case R.id.navigation_events:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new EventsFragment()).commit();
                         return true;
 
-                    case R.id.page_3:
+                    case R.id.navigation_faq:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentLayout, new FAQFragment()).commit();
                         return true;
                 }
