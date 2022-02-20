@@ -20,8 +20,6 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
-import com.google.android.material.progressindicator.BaseProgressIndicator;
-import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,7 +44,6 @@ public class HomeFragment extends Fragment {
     ArrayList<SliderData> sliderList;
     SliderView sliderView;
     SliderAdapter sliderAdapter;
-    CircularProgressIndicator progressBar;
     LinearLayout scroll;
 
     public HomeFragment() {
@@ -70,18 +67,9 @@ public class HomeFragment extends Fragment {
         thiscontext = container.getContext();
         sliderView = v.findViewById(R.id.home_slider);
         scroll = v.findViewById(R.id.linearlayout);
-        progressBar = v.findViewById(R.id.home_progress);
         recyclerView = v.findViewById(R.id.recylcer_home);
         scroll.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
-        progressBar.setShowAnimationBehavior(BaseProgressIndicator.SHOW_NONE);
-        options = new FirebaseRecyclerOptions.Builder<HomeList>().setQuery(ref1, new SnapshotParser<HomeList>() {
-            @NonNull
-            @Override
-            public HomeList parseSnapshot(@NonNull DataSnapshot snapshot) {
-                return new HomeList(snapshot.child("Name").getValue().toString(), snapshot.child("url").getValue().toString());
-            }
-        }).build();
+        options = new FirebaseRecyclerOptions.Builder<HomeList>().setQuery(ref1, snapshot -> new HomeList(snapshot.child("Name").getValue().toString(), snapshot.child("url").getValue().toString())).build();
         return v;
     }
 
@@ -110,13 +98,6 @@ public class HomeFragment extends Fragment {
             protected void onBindViewHolder(@NonNull HomeHolder holder, int position, @NonNull HomeList model) {
                 holder.setImageName(model.getName());
                 holder.mSetImage(model.getImage());
-            }
-
-            @Override
-            public void onDataChanged() {
-                progressBar.setVisibility(View.GONE);
-                progressBar.setHideAnimationBehavior(BaseProgressIndicator.HIDE_NONE);
-                scroll.setVisibility(View.VISIBLE);
             }
         };
         recyclerView.setAdapter(firebaseRecyclerAdapter);

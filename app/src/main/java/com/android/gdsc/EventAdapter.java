@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ImageViewHolder> {
-    private ArrayList<String> imageList;
+    ArrayList<String> imageList;
     public EventAdapter(ArrayList<String> imgList){
         imageList = imgList;
     }
@@ -36,8 +36,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ImageViewHol
         return imageList == null? 0: imageList.size();
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder {
-        private ImageView mImage;
+    public static class ImageViewHolder extends RecyclerView.ViewHolder {
+        ImageView mImage;
         public ImageViewHolder(View itenView){
             super(itenView);
             mImage = itemView.findViewById(R.id.recyclerImage);
