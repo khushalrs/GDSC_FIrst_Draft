@@ -41,7 +41,7 @@ public class EventsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = FirebaseDatabase.getInstance("https://gdsc-task1-default-rtdb.firebaseio.com/");
-        ref = database.getReference().child("Home");
+        ref = database.getReference().child("events");
         eventAdapter = new EventAdapter(eventList);
         addData();
     }
@@ -67,7 +67,8 @@ public class EventsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    eventList.add(snapshot.getValue().toString());
+                    for(DataSnapshot snap : snapshot.getChildren())
+                        eventList.add(snap.getValue().toString());
                 }
                 eventAdapter.notifyDataSetChanged();
             }
