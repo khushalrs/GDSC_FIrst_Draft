@@ -61,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         startActivity(new Intent(SignInActivity.this, MainActivity.class));
                     } else {
-                        Log.i("Auth with google", "signInWithCredential:failure");
+                        Log.i("Auth with google", "signInWithCredential:failure", task.getException());
                     }
                 });
     }

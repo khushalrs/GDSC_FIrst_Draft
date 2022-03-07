@@ -67,8 +67,8 @@ public class EventsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    for(DataSnapshot snap : snapshot.getChildren())
-                        eventList.add(snap.getValue().toString());
+                    for(DataSnapshot snaps : snapshot.getChildren())
+                        eventList.add(snaps.getValue().toString());
                 }
                 eventAdapter.notifyDataSetChanged();
             }
