@@ -18,9 +18,12 @@ package com.android.gdsc.settings
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -52,12 +55,10 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChan
             LayoutInflater.from(mContext).inflate(R.layout.fragment_settings, container, false)
         (view as ViewGroup).addView(super.onCreateView(inflater, container, savedInstanceState))
 
-        mContext.setTheme(R.style.Theme_GDSC_Settings)
-
         return view
     }
 
-    override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
+    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         if (preference == mTheme) {
             val value = newValue as String
             val index = mTheme.findIndexOfValue(value)
@@ -65,6 +66,9 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChan
             mTheme.setValueIndex(index)
             Utils.setIntPreference(mContext, KEY_APP_THEME, index)
             Utils.updateTheme(mContext)
+            Handler(Looper.getMainLooper()).postDelayed({
+                (mContext as FragmentActivity).recreate()
+            }, 1000)
             return true
         }
         return false

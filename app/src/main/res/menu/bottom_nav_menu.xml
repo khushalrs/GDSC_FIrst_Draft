@@ -18,17 +18,17 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_home_selector"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_events"
-        android:icon="@drawable/ic_events"
+        android:icon="@drawable/ic_events_selector"
         android:title="@string/title_events" />
 
     <item
         android:id="@+id/navigation_faq"
-        android:icon="@drawable/ic_faq"
+        android:icon="@drawable/ic_faq_selector"
         android:title="@string/title_faq" />
 
 </menu>

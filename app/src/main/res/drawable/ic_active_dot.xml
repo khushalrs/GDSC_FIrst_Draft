@@ -22,5 +22,5 @@
     <size
         android:width="10dp"
         android:height="10dp" />
-    <solid android:color="@color/colorAccent" />
+    <solid android:color="@color/md_theme_light_primary" />
 </shape>
