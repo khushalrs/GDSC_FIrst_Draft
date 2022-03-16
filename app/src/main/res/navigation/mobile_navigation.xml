@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2021 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
+     Copyright (C) 2022 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -37,4 +37,10 @@
         android:name="com.android.gdsc.ui.faq.FaqFragment"
         android:label="@string/title_faq"
         tools:layout="@layout/fragment_faq" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.android.gdsc.ui.about.AboutFragment"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

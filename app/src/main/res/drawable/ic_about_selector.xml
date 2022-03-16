@@ -14,26 +14,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_selector"
-        android:title="@string/title_home" />
-
-    <item
-        android:id="@+id/navigation_events"
-        android:icon="@drawable/ic_events_selector"
-        android:title="@string/title_events" />
-
-    <item
-        android:id="@+id/navigation_faq"
-        android:icon="@drawable/ic_faq_selector"
-        android:title="@string/title_faq" />
-
-    <item
-        android:id="@+id/navigation_about"
-        android:icon="@drawable/ic_about_selector"
-        android:title="@string/title_about" />
-
-</menu>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@drawable/ic_about_selected" />
+    <item android:drawable="@drawable/ic_about_outline" />
+</selector>
