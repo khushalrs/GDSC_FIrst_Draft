@@ -15,13 +15,13 @@
      limitations under the License.
 -->
 <resources>
-    <!-- Homepage cards size and padding -->
-    <dimen name="contextual_card_top_margin">8dp</dimen>
-    <dimen name="contextual_card_bottom_margin">8dp</dimen>
-    <dimen name="contextual_card_side_margin">16dp</dimen>
-    <dimen name="contextual_card_corner_radius">24dp</dimen>
-    <dimen name="contextual_card_vertical_padding">16dp</dimen>
+
+    <!-- Card size and padding -->
+    <dimen name="contextual_card_vertical_margin">8dp</dimen>
+    <dimen name="contextual_card_horizontal_margin">16dp</dimen>
+    <dimen name="contextual_card_vertical_padding">24dp</dimen>
     <dimen name="contextual_card_horizontal_padding">24dp</dimen>
+    <dimen name="contextual_card_corner_radius">24dp</dimen>
 
     <dimen name="scrollview_bottom_margin">88dp</dimen>
 

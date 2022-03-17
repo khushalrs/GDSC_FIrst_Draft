@@ -20,9 +20,7 @@
     android:id="@+id/post"
     style="@style/ContextualCardStyle"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/contextual_card_side_margin"
-    android:layout_marginVertical="@dimen/contextual_card_top_margin">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
