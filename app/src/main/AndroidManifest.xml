@@ -37,6 +37,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".AchievementsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PastEventsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".settings.SettingsActivity"
             android:exported="false" />
     </application>

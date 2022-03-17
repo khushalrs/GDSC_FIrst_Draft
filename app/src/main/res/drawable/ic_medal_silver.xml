@@ -14,26 +14,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:autoMirrored="true"
+    android:tint="#A7A7AD"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
 
-    <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_selector"
-        android:title="@string/title_home" />
-
-    <item
-        android:id="@+id/navigation_triumphs"
-        android:icon="@drawable/ic_triumphs_selector"
-        android:title="@string/title_triumphs" />
-
-    <item
-        android:id="@+id/navigation_faq"
-        android:icon="@drawable/ic_faq_selector"
-        android:title="@string/title_faq" />
-
-    <item
-        android:id="@+id/navigation_about"
-        android:icon="@drawable/ic_about_selector"
-        android:title="@string/title_about" />
-
-</menu>
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M9.68,13.69L12,11.93l2.31,1.76l-0.88,-2.85L15.75,9h-2.84L12,6.19L11.09,9H8.25l2.31,1.84L9.68,13.69zM20,10c0,-4.42 -3.58,-8 -8,-8s-8,3.58 -8,8c0,2.03 0.76,3.87 2,5.28V23l6,-2l6,2v-7.72C19.24,13.87 20,12.03 20,10zM12,4c3.31,0 6,2.69 6,6s-2.69,6 -6,6s-6,-2.69 -6,-6S8.69,4 12,4z"/>
+</vector>

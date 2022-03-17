@@ -27,10 +27,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_events"
-        android:name="com.android.gdsc.ui.events.EventsFragment"
-        android:label="@string/title_events"
-        tools:layout="@layout/fragment_events" />
+        android:id="@+id/navigation_triumphs"
+        android:name="com.android.gdsc.ui.triumphs.TriumphsFragment"
+        android:label="@string/title_triumphs"
+        tools:layout="@layout/fragment_triumphs" />
 
     <fragment
         android:id="@+id/navigation_faq"

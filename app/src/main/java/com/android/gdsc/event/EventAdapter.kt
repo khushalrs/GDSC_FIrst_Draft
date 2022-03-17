@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
+ * Copyright (C) 2022 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.gdsc.PastEventsActivity
 import com.android.gdsc.R
-import com.android.gdsc.ui.events.EventsFragment
+import com.android.gdsc.ui.triumphs.TriumphsFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -35,7 +36,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
 class EventAdapter(
-    private val eventsFragment: EventsFragment,
+    private val triumphsFragment: TriumphsFragment,
     private val context: Context,
     private val event: ArrayList<Event>,
 ) :
@@ -70,8 +71,8 @@ class EventAdapter(
                     dataSource: DataSource?,
                     isFirstResource: Boolean,
                 ): Boolean {
-                    if (position == itemCount - 1 && EventsFragment._binding != null) {
-                        EventsFragment.hideProgressBar(eventsFragment, true)
+                    if (position == itemCount - 1 && TriumphsFragment._binding != null) {
+                        PastEventsActivity.hideProgressBar(true)
                     }
                     return false
                 }

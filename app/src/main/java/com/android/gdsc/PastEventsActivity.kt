@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
+ * Copyright (C) 2022 Anushek Prasal (SKULSHADY) <anushekprasal@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,59 +14,45 @@
  * limitations under the License.
  */
 
-package com.android.gdsc.ui.events
+package com.android.gdsc
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.ProgressBar
+import android.widget.ScrollView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.gdsc.databinding.FragmentEventsBinding
+import androidx.recyclerview.widget.RecyclerView
 import com.android.gdsc.event.Event
 import com.android.gdsc.event.EventAdapter
+import com.android.gdsc.ui.triumphs.TriumphsFragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class EventsFragment : Fragment() {
+class PastEventsActivity : AppCompatActivity() {
 
-    private val binding get() = _binding!!
 
-    private lateinit var mContext: Context
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_past_events)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-
-        _binding = FragmentEventsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        mContext = requireActivity()
+        mProgressBar = findViewById(R.id.progress_bar)
+        mScrollView = findViewById(R.id.scroll_view)
 
         updateViews()
-
-        return root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun setEvents() {
-        val eventView = binding.event
+        val eventView = findViewById<RecyclerView>(R.id.event)
         val eventDBRef = FirebaseDatabase.getInstance().reference.child("events")
         val event = ArrayList<Event>()
-        val eventAdapter = EventAdapter(this, mContext, event)
+        val eventAdapter = EventAdapter(TriumphsFragment(), this, event)
 
         eventView.setHasFixedSize(true)
-        eventView.layoutManager = LinearLayoutManager(mContext)
+        eventView.layoutManager = LinearLayoutManager(this)
         eventView.adapter = eventAdapter
         eventDBRef.keepSynced(true)
         eventDBRef.addValueEventListener(object : ValueEventListener {
@@ -87,21 +73,20 @@ class EventsFragment : Fragment() {
     }
 
     private fun updateViews() {
-        hideProgressBar(this, false)
+        hideProgressBar(false)
         setEvents()
     }
 
     companion object {
-        var _binding: FragmentEventsBinding? = null
+        private lateinit var mProgressBar: ProgressBar
+        private lateinit var mScrollView: ScrollView
 
-        fun hideProgressBar(eventsFragment: EventsFragment, hide: Boolean) {
-            val progressBar = eventsFragment.binding.progressBar
-            val scrollView = eventsFragment.binding.scrollView
+        fun hideProgressBar(hide: Boolean) {
 
-            if (progressBar.visibility != View.VISIBLE) return
+            if (mProgressBar.visibility != View.VISIBLE) return
 
-            progressBar.visibility = if (hide) View.GONE else View.VISIBLE
-            scrollView.visibility = if (hide) View.VISIBLE else View.INVISIBLE
+            mProgressBar.visibility = if (hide) View.GONE else View.VISIBLE
+            mScrollView.visibility = if (hide) View.VISIBLE else View.INVISIBLE
         }
     }
 }
