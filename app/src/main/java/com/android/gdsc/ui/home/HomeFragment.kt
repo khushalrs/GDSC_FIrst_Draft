@@ -19,6 +19,8 @@ package com.android.gdsc.ui.home
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +44,8 @@ class HomeFragment : Fragment() {
 
     private val binding get() = _binding!!
     private var mBannerCount: Int = 0
+    private var mPage: Int = 0
+    private var mHandler: Handler? = null
 
     private lateinit var mContext: Context
 
@@ -55,10 +59,21 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         mContext = requireActivity()
+        mHandler = Handler(Looper.getMainLooper())
 
         updateViews()
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mHandler?.postDelayed(mRunnable, DELAY)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mHandler?.removeCallbacks(mRunnable)
     }
 
     override fun onDestroyView() {
@@ -127,6 +142,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onPageSelected(position: Int) {
+                mPage = position
                 for (i in 0 until mBannerCount) {
                     dots[i]?.setImageResource(R.drawable.ic_inactive_dot)
                 }
@@ -135,6 +151,16 @@ class HomeFragment : Fragment() {
 
             override fun onPageScrollStateChanged(state: Int) {}
         })
+    }
+
+    private var mRunnable: Runnable = object : Runnable {
+        override fun run() {
+            if (mBannerCount != 0) {
+                if (mBannerCount == mPage - 1) mPage = 0
+                binding.banner.setCurrentItem(mPage++, true)
+                mHandler?.postDelayed(this, DELAY)
+            }
+        }
     }
 
     private fun setFeed() {
@@ -171,6 +197,8 @@ class HomeFragment : Fragment() {
     }
 
     companion object {
+        private const val DELAY = 2500L
+
         var _binding: FragmentHomeBinding? = null
 
         fun hideProgressBar(homeFragment: HomeFragment, hide: Boolean) {
