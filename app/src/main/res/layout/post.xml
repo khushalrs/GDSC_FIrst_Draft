@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
-            android:paddingVertical="@dimen/contextual_card_vertical_padding"
+            android:paddingTop="@dimen/contextual_card_horizontal_margin"
+            android:paddingBottom="@dimen/contextual_card_vertical_padding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image">
@@ -65,13 +66,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/title"
                 tools:text="Description" />
 
-            <TextView
-                android:id="@+id/author"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textAppearance="@style/SubtitleStyleMedium"
-                tools:text="Author" />
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="@style/SubtitleStyleMedium" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:textAppearance="@style/SubtitleStyleMedium" />
+            </RelativeLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

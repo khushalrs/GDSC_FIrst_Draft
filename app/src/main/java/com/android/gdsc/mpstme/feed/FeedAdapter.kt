@@ -80,6 +80,7 @@ class FeedAdapter(
         post.title.text = feed.title
         post.description.text = feed.description
         post.author.text = feed.author
+        post.date.text = feed.date
 
         if (feed.url != null) {
             post.card.setOnClickListener {
@@ -100,5 +101,6 @@ class FeedAdapter(
         val title: TextView = itemView.findViewById(R.id.title)
         val description: TextView = itemView.findViewById(R.id.description)
         val author: TextView = itemView.findViewById(R.id.author)
+        val date: TextView = itemView.findViewById(R.id.date)
     }
 }
