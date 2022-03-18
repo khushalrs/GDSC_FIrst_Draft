@@ -17,8 +17,18 @@
 package com.android.gdsc.mpstme
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
 
 object Utils {
+
+    @JvmStatic
+    fun updateTheme(context: Context) {
+        when (getIntPreference(context, "app_theme", 0)) {
+            1 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            2 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            else -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        }
+    }
 
     @JvmStatic
     fun getBooleanPreference(context: Context, key: String?, defaultValue: Boolean): Boolean {
