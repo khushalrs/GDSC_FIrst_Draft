@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources>
+
     <string name="app_name">GDSC MPSTME</string>
 
     <string name="sign_in_with_google">Sign in with Google</string>
@@ -36,10 +37,14 @@
     <string name="app_theme_light">Light</string>
     <string name="app_theme_dark">Dark</string>
 
+    <string name="achievements_title">Achievements</string>
+    <string name="achievements_summary">Accomplishments of our talented members in all their glory</string>
+    <string name="past_events_title">Past Events</string>
+    <string name="past_events_summary">Exciting events and workshops held by our club in the past</string>
+
     <string name="participation_description">Participated</string>
     <string name="medal_gold_description">1st Place</string>
     <string name="medal_silver_description">2nd Place</string>
     <string name="medal_bronze_description">3rd Place</string>
-    <string name="achievements_title">Achievements</string>
-    <string name="past_events_title">Past Events</string>
+
 </resources>

@@ -33,6 +33,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp"
             android:textAppearance="@style/TitleStyle"
             tools:text="Name" />
 
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="92dp"
             android:textAppearance="@style/SubtitleStyle"
             tools:text="Description" />
 
