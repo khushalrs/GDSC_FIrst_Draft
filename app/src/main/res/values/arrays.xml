@@ -21,9 +21,5 @@
         <item>@string/app_theme_light</item>
         <item>@string/app_theme_dark</item>
     </string-array>
-    <string-array name="app_theme_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
+
 </resources>

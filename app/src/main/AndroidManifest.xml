@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GDSC">
+
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -43,10 +44,5 @@
         <activity
             android:name=".PastEventsActivity"
             android:exported="false" />
-
-        <activity
-            android:name=".settings.SettingsActivity"
-            android:exported="false" />
     </application>
-
 </manifest>

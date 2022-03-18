@@ -21,12 +21,13 @@ import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.gdsc.databinding.ActivityMainBinding
-import com.android.gdsc.settings.SettingsActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,8 +51,32 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        binding.settings.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
+        binding.theme.setOnClickListener {
+            val builder = MaterialAlertDialogBuilder(this)
+            var checkedItem = Utils.getIntPreference(this, KEY_APP_THEME, 0)
+            builder.setTitle(R.string.app_theme_title)
+            builder.setSingleChoiceItems(R.array.app_theme_entries, checkedItem) { dialog, which ->
+                checkedItem = which
+                when (which) {
+                    0 -> {
+                        Utils.setIntPreference(this, KEY_APP_THEME, 0)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                    }
+                    1 -> {
+                        Utils.setIntPreference(this, KEY_APP_THEME, 1)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    }
+                    2 -> {
+                        Utils.setIntPreference(this, KEY_APP_THEME, 2)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    }
+                }
+            }
+            builder.setPositiveButton(android.R.string.ok) { dialog, which ->
+                Utils.setIntPreference(this, KEY_APP_THEME, checkedItem)
+            }
+            builder.setNegativeButton(android.R.string.cancel, null)
+            builder.show()
         }
     }
 
@@ -61,5 +86,9 @@ class MainActivity : AppCompatActivity() {
             Configuration.UI_MODE_NIGHT_NO -> {} // Night mode is not active, we're using the light theme
             Configuration.UI_MODE_NIGHT_YES -> {} // Night mode is active, we're using dark theme
         }
+    }
+
+    companion object {
+        const val KEY_APP_THEME = "app_theme"
     }
 }

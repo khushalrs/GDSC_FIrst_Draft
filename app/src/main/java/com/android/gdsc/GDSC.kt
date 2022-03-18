@@ -26,6 +26,5 @@ class GDSC : Application() {
         super.onCreate()
         DynamicColors.applyToActivitiesIfAvailable(this)
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-        Utils.updateTheme(this)
     }
 }
