@@ -40,6 +40,10 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        findViewById<ImageView>(R.id.back).setOnClickListener {
+            finish()
+        }
+
         mFirebaseAuth = FirebaseAuth.getInstance()
 
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

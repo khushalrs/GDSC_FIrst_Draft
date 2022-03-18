@@ -17,12 +17,16 @@
 package com.android.gdsc
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.gdsc.achievements.Achievements
 import com.android.gdsc.achievements.AchievementsAdapter
+import com.bumptech.glide.Glide
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -33,6 +37,17 @@ class AchievementsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_achievements)
+
+        findViewById<ImageView>(R.id.back).setOnClickListener {
+            finish()
+        }
+
+        val profileImage = findViewById<ImageView>(R.id.profile)
+        val profileImageUri = Utils.getStringPreference(this, "profile_image", "")
+        Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileImage)
+        profileImage.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
 
         setAchievements()
     }
