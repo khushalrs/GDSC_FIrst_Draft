@@ -120,6 +120,7 @@ class HomeFragment : Fragment() {
         } else {
             bannerView.visibility = View.VISIBLE
             slider.visibility = View.VISIBLE
+            slider.removeAllViews()
             for (i in 0 until mBannerCount) {
                 dots[i] = ImageView(mContext)
                 dots[i]?.setImageResource(R.drawable.ic_inactive_dot)
@@ -143,10 +144,13 @@ class HomeFragment : Fragment() {
 
             override fun onPageSelected(position: Int) {
                 mPage = position
-                for (i in 0 until mBannerCount) {
-                    dots[i]?.setImageResource(R.drawable.ic_inactive_dot)
+                try {
+                    for (i in 0 until mBannerCount) {
+                        dots[i]?.setImageResource(R.drawable.ic_inactive_dot)
+                    }
+                    dots[position]?.setImageResource(R.drawable.ic_active_dot)
+                } catch (e: Exception) {
                 }
-                dots[position]?.setImageResource(R.drawable.ic_active_dot)
             }
 
             override fun onPageScrollStateChanged(state: Int) {}
