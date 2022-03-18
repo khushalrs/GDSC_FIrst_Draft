@@ -1,4 +1,4 @@
-package com.android.gdsc
+package com.android.gdsc.mpstme
 
 import org.junit.Test
 

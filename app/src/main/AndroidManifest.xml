@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.gdsc">
+    package="com.android.gdsc.mpstme">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -38,11 +38,11 @@
             android:exported="false" />
 
         <activity
-            android:name=".AchievementsActivity"
+            android:name=".ui.triumphs.AchievementsActivity"
             android:exported="false" />
 
         <activity
-            android:name=".PastEventsActivity"
+            android:name=".ui.triumphs.PastEventsActivity"
             android:exported="false" />
     </application>
 </manifest>
