@@ -35,5 +35,109 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/ContextualCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                    android:paddingVertical="@dimen/contextual_card_horizontal_padding">
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="196dp"
+                        android:layout_height="196dp"
+                        android:layout_gravity="center"
+                        android:importantForAccessibility="no"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_gdsc" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/welcome_message"
+                        android:textAppearance="@style/TitleStyle"
+                        tools:text="Title" />
+
+                    <TextView
+                        android:id="@+id/summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/club_description"
+                        android:textAppearance="@style/SubtitleStyle" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/ContextualCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                    android:paddingVertical="@dimen/contextual_card_horizontal_padding">
+
+                    <TextView
+                        android:id="@+id/version_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_version"
+                        android:textAppearance="@style/TitleStyle" />
+
+                    <TextView
+                        android:id="@+id/version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textAppearance="@style/SubtitleStyle" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/ContextualCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/contextual_card_horizontal_margin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                    android:paddingVertical="@dimen/contextual_card_horizontal_padding">
+
+                    <TextView
+                        android:id="@+id/creator_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/creator_label"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:textAppearance="@style/TitleStyle" />
+
+                    <TextView
+                        android:id="@+id/creator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/creator_name"
+                        android:textAppearance="@style/SubtitleStyle" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </com.android.gdsc.mpstme.ui.FadingEdgeScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

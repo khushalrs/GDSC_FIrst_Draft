@@ -28,6 +28,12 @@
     <string name="title_about">About</string>
 
     <string name="welcome_message">Welcome to GDSC MPSTME!</string>
+    <string name="club_description">Google Developer Student Clubs are university based community groups for students interested in Google developer technologies. Students from all undergraduate or graduate programs with an interest in growing as a developer are welcome.\n\nBy joining a GDSC, students grow their knowledge in a peer-to-peer learning environment and build solutions for local businesses and their community.\n\nGDSC MPSTME was established in 2021, with its humble beginnings from 10 departments across 6 technical disciplines and flagship events like CodeWars 2021-22 and AI Summit 2021-22 as its legacy.</string>
+
+    <string name="app_version">App Version</string>
+    <string name="creator_label">Created by</string>
+    <string name="creator_name">Anushek Prasal (SKULSHADY)</string>
+
     <string name="name_label">Name</string>
     <string name="email_label">Email</string>
     <string name="points_label">Points</string>
