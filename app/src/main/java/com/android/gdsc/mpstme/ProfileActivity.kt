@@ -59,15 +59,15 @@ class ProfileActivity : AppCompatActivity() {
 
         val profileName = findViewById<View>(R.id.profile_display_name) as TextView
         val name = Utils.getStringPreference(this, "profile_display_name", "")
-        profileName.text = getString(R.string.name, name)
+        profileName.text = name
 
         val profileEmail = findViewById<View>(R.id.profile_email) as TextView
         val email = Utils.getStringPreference(this, "profile_email", "")
-        profileEmail.text = getString(R.string.email, email)
+        profileEmail.text = email
 
         val profilePoints = findViewById<View>(R.id.profile_points) as TextView
         val points = Utils.getIntPreference(this, "profile_points", 0)
-        profilePoints.text = getString(R.string.points, points)
+        profilePoints.text = points.toString()
 
         val signOutButton = findViewById<MaterialButton>(R.id.sign_out_button)
         signOutButton.text = " " + getString(R.string.sign_out)

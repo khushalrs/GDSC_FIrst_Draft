@@ -68,50 +68,95 @@
                 android:padding="12dp"
                 android:src="@mipmap/ic_launcher" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/profile"
-                style="@style/ContextualCardStyle"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/ContextualCardStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
-                    android:paddingVertical="@dimen/contextual_card_vertical_padding">
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/profile_header"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/welcome_message"
-                        android:textAppearance="@style/TitleStyle" />
+                        android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                        android:paddingVertical="@dimen/contextual_card_horizontal_padding">
 
-                    <TextView
-                        android:id="@+id/profile_display_name"
+                        <TextView
+                            android:id="@+id/profile_display_name_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/name_label"
+                            android:textAppearance="@style/TitleStyle" />
+
+                        <TextView
+                            android:id="@+id/profile_display_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:textAppearance="@style/SubtitleStyle" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/ContextualCardStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textAppearance="@style/SubtitleStyleMedium" />
+                        android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                        android:paddingVertical="@dimen/contextual_card_horizontal_padding">
 
-                    <TextView
-                        android:id="@+id/profile_email"
+                        <TextView
+                            android:id="@+id/profile_email_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/email_label"
+                            android:textAppearance="@style/TitleStyle" />
+
+                        <TextView
+                            android:id="@+id/profile_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:textAppearance="@style/SubtitleStyle" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/ContextualCardStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textAppearance="@style/SubtitleStyleMedium" />
+                        android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
+                        android:paddingVertical="@dimen/contextual_card_horizontal_padding">
 
-                    <TextView
-                        android:id="@+id/profile_points"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textAppearance="@style/SubtitleStyleMedium" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/profile_points_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/points_label"
+                            android:textAppearance="@style/TitleStyle" />
+
+                        <TextView
+                            android:id="@+id/profile_points"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:textAppearance="@style/SubtitleStyle" />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/sign_out_button"

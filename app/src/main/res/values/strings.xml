@@ -21,15 +21,15 @@
     <string name="sign_in_failed">Google Sign In failed. Please try again.</string>
     <string name="sign_out">Sign Out</string>
 
-    <string name="welcome_message">Welcome to GDSC MPSTME!</string>
-    <string name="name">Name: %s</string>
-    <string name="email">Email: %s</string>
-    <string name="points">Points: %d</string>
-
     <string name="title_home">Home</string>
     <string name="title_triumphs">Triumphs</string>
     <string name="title_faq">FAQ</string>
     <string name="title_about">About</string>
+
+    <string name="welcome_message">Welcome to GDSC MPSTME!</string>
+    <string name="name_label">Name</string>
+    <string name="email_label">Email</string>
+    <string name="points_label">Points</string>
 
     <string name="app_theme_title">Theme</string>
     <string name="app_theme_system">System Default</string>
