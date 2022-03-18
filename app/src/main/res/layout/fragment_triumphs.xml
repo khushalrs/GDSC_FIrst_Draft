@@ -56,8 +56,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/achievements_title"
-                        android:textAppearance="@style/TitleStyle"
-                        tools:text="Title" />
+                        android:textAppearance="@style/TitleStyle" />
 
                     <TextView
                         android:id="@+id/achievements_summary"
@@ -99,8 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/past_events_title"
-                        android:textAppearance="@style/TitleStyle"
-                        tools:text="Title" />
+                        android:textAppearance="@style/TitleStyle" />
 
                     <TextView
                         android:id="@+id/past_events_summary"

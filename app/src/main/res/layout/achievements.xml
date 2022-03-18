@@ -15,8 +15,6 @@
      limitations under the License.
 -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     style="@style/ContextualCardStyle"
     android:layout_width="match_parent"
@@ -34,8 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="64dp"
-            android:textAppearance="@style/TitleStyle"
-            tools:text="Name" />
+            android:textAppearance="@style/TitleStyle" />
 
         <TextView
             android:id="@+id/description"
@@ -44,11 +41,9 @@
             android:layout_below="@id/name"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="92dp"
-            android:textAppearance="@style/SubtitleStyle"
-            tools:text="Description" />
+            android:textAppearance="@style/SubtitleStyle" />
 
         <LinearLayout
-            android:id="@+id/medal_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -72,8 +67,7 @@
                 android:gravity="center"
                 android:maxEms="5"
                 android:minEms="5"
-                android:textAppearance="@style/SubtitleStyle"
-                tools:text="Participated" />
+                android:textAppearance="@style/SubtitleStyle" />
         </LinearLayout>
 
         <com.google.android.material.chip.Chip
@@ -81,7 +75,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:layout_marginTop="16dp"
-            tools:text="Android Department" />
+            android:layout_marginTop="16dp" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

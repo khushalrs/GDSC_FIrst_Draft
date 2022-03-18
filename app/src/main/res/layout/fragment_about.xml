@@ -66,8 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/welcome_message"
-                        android:textAppearance="@style/TitleStyle"
-                        tools:text="Title" />
+                        android:textAppearance="@style/TitleStyle" />
 
                     <TextView
                         android:id="@+id/summary"
@@ -123,9 +122,9 @@
                         android:id="@+id/creator_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/creator_label"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
+                        android:text="@string/creator_label"
                         android:textAppearance="@style/TitleStyle" />
 
                     <TextView

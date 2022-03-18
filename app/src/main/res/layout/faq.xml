@@ -16,7 +16,6 @@
 -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     style="@style/ContextualCardStyle"
     android:layout_width="match_parent"
@@ -37,8 +36,7 @@
             android:layout_marginEnd="24dp"
             android:textAppearance="@style/TitleStyle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Question" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/expand"
@@ -57,7 +55,6 @@
             android:textAppearance="@style/SubtitleStyle"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question"
-            tools:text="Answer" />
+            app:layout_constraintTop_toBottomOf="@+id/question" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

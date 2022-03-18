@@ -16,7 +16,6 @@
 -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/post"
     style="@style/ContextualCardStyle"
     android:layout_width="match_parent"
@@ -53,8 +52,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TitleStyle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider"
-                tools:text="Title" />
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
 
             <TextView
                 android:id="@+id/description"
@@ -63,8 +61,7 @@
                 android:layout_marginTop="8dp"
                 android:textAppearance="@style/SubtitleStyle"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                tools:text="Description" />
+                app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

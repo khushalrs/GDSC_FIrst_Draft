@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Theme.GDSC" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
@@ -45,4 +46,5 @@
         <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
+    
 </resources>
