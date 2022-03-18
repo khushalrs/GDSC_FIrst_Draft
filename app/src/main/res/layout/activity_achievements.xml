@@ -59,7 +59,7 @@
             android:src="@mipmap/ic_launcher" />
     </RelativeLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <com.android.gdsc.mpstme.ui.FadingEdgeScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -80,7 +80,8 @@
                 android:id="@+id/achievements"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
                 android:layout_weight="1" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </com.android.gdsc.mpstme.ui.FadingEdgeScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

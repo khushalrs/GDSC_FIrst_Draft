@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header" />
 
-    <ScrollView
+    <com.android.gdsc.mpstme.ui.FadingEdgeScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,9 +83,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/event"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
-    </ScrollView>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/event"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </com.android.gdsc.mpstme.ui.FadingEdgeScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

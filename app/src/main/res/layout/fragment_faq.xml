@@ -22,22 +22,29 @@
     android:animateLayoutChanges="true"
     tools:context=".ui.faq.FaqFragment">
 
-    <ScrollView
+    <com.android.gdsc.mpstme.ui.FadingEdgeScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:requiresFadingEdge="vertical"
         android:scrollbars="vertical"
-        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/faq"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/scrollview_bottom_margin" />
-    </ScrollView>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/faq"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/scrollview_bottom_margin"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </com.android.gdsc.mpstme.ui.FadingEdgeScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
