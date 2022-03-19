@@ -61,11 +61,10 @@
 
             <ImageView
                 android:id="@+id/profile_image"
-                android:layout_width="196dp"
-                android:layout_height="196dp"
+                android:layout_width="228dp"
+                android:layout_height="228dp"
                 android:layout_gravity="center"
-                android:layout_marginVertical="32dp"
-                android:padding="12dp"
+                android:padding="24dp"
                 android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
