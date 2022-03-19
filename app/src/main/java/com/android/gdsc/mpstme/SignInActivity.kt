@@ -47,7 +47,7 @@ class SignInActivity : AppCompatActivity() {
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
         val signInButton = findViewById<MaterialButton>(R.id.sign_in_button)
-        signInButton.text = " " + getString(R.string.sign_in_with_google)
+        signInButton.text = getString(R.string.sign_in_with_google)
         signInButton.setOnClickListener { signIn() }
     }
 

@@ -70,7 +70,7 @@ class ProfileActivity : AppCompatActivity() {
         profilePoints.text = points.toString()
 
         val signOutButton = findViewById<MaterialButton>(R.id.sign_out_button)
-        signOutButton.text = " " + getString(R.string.sign_out)
+        signOutButton.text = getString(R.string.sign_out)
         signOutButton.setOnClickListener { signOut() }
     }
 
