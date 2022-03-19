@@ -24,11 +24,11 @@
 
     <ImageView
         android:id="@+id/app_icon"
-        android:layout_width="196dp"
-        android:layout_height="196dp"
+        android:layout_width="288dp"
+        android:layout_height="288dp"
         android:layout_marginBottom="64dp"
         android:foregroundGravity="center"
-        android:padding="24dp"
+        android:padding="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +45,10 @@
         android:text="@string/app_name"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="?android:attr/textColorHint"
-        android:textSize="36sp"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_icon"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.75" />
 </androidx.constraintlayout.widget.ConstraintLayout>
