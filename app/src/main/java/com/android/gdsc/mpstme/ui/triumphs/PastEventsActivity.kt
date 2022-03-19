@@ -66,7 +66,7 @@ class PastEventsActivity : AppCompatActivity() {
         val eventView = findViewById<RecyclerView>(R.id.event)
         val eventDBRef = FirebaseDatabase.getInstance().reference.child("events")
         val event = ArrayList<Event>()
-        val eventAdapter = EventAdapter(TriumphsFragment(), this, event)
+        val eventAdapter = EventAdapter(this, event)
 
         eventView.setHasFixedSize(true)
         eventView.layoutManager = LinearLayoutManager(this)

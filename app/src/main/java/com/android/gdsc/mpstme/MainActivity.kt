@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             val builder = MaterialAlertDialogBuilder(this)
             var checkedItem = Utils.getIntPreference(this, KEY_APP_THEME, 0)
             builder.setTitle(R.string.app_theme_title)
-            builder.setSingleChoiceItems(R.array.app_theme_entries, checkedItem) { dialog, which ->
+            builder.setSingleChoiceItems(R.array.app_theme_entries, checkedItem) { _, which ->
                 checkedItem = which
                 when (which) {
                     0 -> {
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            builder.setPositiveButton(android.R.string.ok) { dialog, which ->
+            builder.setPositiveButton(android.R.string.ok) { _, _ ->
                 Utils.setIntPreference(this, KEY_APP_THEME, checkedItem)
             }
             builder.setNegativeButton(android.R.string.cancel, null)

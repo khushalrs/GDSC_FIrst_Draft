@@ -36,7 +36,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
 class EventAdapter(
-    private val triumphsFragment: TriumphsFragment,
     private val context: Context,
     private val event: ArrayList<Event>,
 ) :
