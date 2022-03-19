@@ -72,9 +72,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            builder.setPositiveButton(android.R.string.ok) { _, _ ->
-                Utils.setIntPreference(this, KEY_APP_THEME, checkedItem)
-            }
             builder.setNegativeButton(android.R.string.cancel, null)
             builder.show()
         }
