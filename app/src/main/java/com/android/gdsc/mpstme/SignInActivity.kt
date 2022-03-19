@@ -16,9 +16,11 @@
 
 package com.android.gdsc.mpstme
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -52,21 +54,20 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun signIn() {
-        startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
+        getResult.launch(mGoogleSignInClient.signInIntent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account)
-            } catch (e: ApiException) {
+    private val getResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+                try {
+                    val account = task.getResult(ApiException::class.java)
+                    firebaseAuthWithGoogle(account)
+                } catch (e: ApiException) {
+                }
             }
         }
-    }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount?) {
         val credential = GoogleAuthProvider.getCredential(account!!.idToken, null)
@@ -81,9 +82,5 @@ class SignInActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, getString(R.string.sign_in_failed), Toast.LENGTH_SHORT).show()
             }
-    }
-
-    companion object {
-        private const val RC_SIGN_IN = 9001
     }
 }
