@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
@@ -93,17 +93,20 @@
                         android:id="@+id/version_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="24dp"
                         android:text="@string/app_version"
                         android:textAppearance="@style/TitleStyle" />
 
                     <TextView
                         android:id="@+id/version"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="end"
                         android:textAppearance="@style/SubtitleStyle" />
-                </RelativeLayout>
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -112,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/contextual_card_horizontal_margin">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="@dimen/contextual_card_horizontal_padding"
@@ -122,20 +125,21 @@
                         android:id="@+id/creator_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="24dp"
                         android:text="@string/creator_label"
                         android:textAppearance="@style/TitleStyle" />
 
                     <TextView
                         android:id="@+id/creator"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="end"
                         android:text="@string/creator_name"
                         android:textAppearance="@style/SubtitleStyle" />
-                </RelativeLayout>
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </com.android.gdsc.mpstme.ui.FadingEdgeScrollView>
