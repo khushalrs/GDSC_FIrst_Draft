@@ -16,7 +16,9 @@
 
 package com.android.gdsc.mpstme
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -77,7 +79,9 @@ class ProfileActivity : AppCompatActivity() {
     private fun signOut() {
         mGoogleSignInClient.signOut()
             .addOnCompleteListener {
-                Utils.setBooleanPreference(this, "signed_in", false)
+                val settings: SharedPreferences =
+                    this.getSharedPreferences("settings", Context.MODE_PRIVATE)
+                settings.edit().clear().apply()
                 startActivity(Intent(this, SignInActivity::class.java))
                 finish()
             }
