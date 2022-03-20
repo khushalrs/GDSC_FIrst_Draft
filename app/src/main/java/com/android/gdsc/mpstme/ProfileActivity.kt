@@ -25,6 +25,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -42,7 +43,12 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        findViewById<ImageView>(R.id.back).setOnClickListener {
+        val profileIcon = findViewById<ImageView>(R.id.profile)
+        profileIcon.visibility = View.GONE
+
+        val action = findViewById<ImageView>(R.id.action)
+        action.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_back))
+        action.setOnClickListener {
             finish()
         }
 

@@ -22,6 +22,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.gdsc.mpstme.ProfileActivity
@@ -41,14 +42,16 @@ class AchievementsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_achievements)
 
-        findViewById<ImageView>(R.id.back).setOnClickListener {
+        val action = findViewById<ImageView>(R.id.action)
+        action.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_back))
+        action.setOnClickListener {
             finish()
         }
 
-        val profileImage = findViewById<ImageView>(R.id.profile)
+        val profileIcon = findViewById<ImageView>(R.id.profile)
         val profileImageUri = Utils.getStringPreference(this, "profile_image", "")
-        Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileImage)
-        profileImage.setOnClickListener {
+        Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileIcon)
+        profileIcon.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 

@@ -20,8 +20,10 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.gdsc.mpstme.databinding.ActivityMainBinding
@@ -44,14 +46,16 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        val profileImage = binding.profile
+        val profileIcon = findViewById<ImageView>(R.id.profile)
         val profileImageUri = Utils.getStringPreference(this, "profile_image", "")
-        Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileImage)
-        profileImage.setOnClickListener {
+        Glide.with(this).load(Uri.parse(profileImageUri)).circleCrop().into(profileIcon)
+        profileIcon.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        binding.theme.setOnClickListener {
+        val action = findViewById<ImageView>(R.id.action)
+        action.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_theme))
+        action.setOnClickListener {
             val builder = MaterialAlertDialogBuilder(this)
             var checkedItem = Utils.getIntPreference(this, KEY_APP_THEME, 0)
             builder.setTitle(R.string.app_theme_title)
