@@ -16,6 +16,9 @@
 
 package com.android.gdsc.mpstme.faq
 
+import androidx.annotation.Keep
+
+@Keep
 class Faq {
     var question: String? = null
     var answer: String? = null

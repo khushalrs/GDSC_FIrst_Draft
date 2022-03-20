@@ -16,6 +16,9 @@
 
 package com.android.gdsc.mpstme.banner
 
+import androidx.annotation.Keep
+
+@Keep
 class Banner {
     var image: String? = null
     var url: String? = null

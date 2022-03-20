@@ -16,6 +16,9 @@
 
 package com.android.gdsc.mpstme.feed
 
+import androidx.annotation.Keep
+
+@Keep
 class Feed {
     var image: String? = null
     var title: String? = null

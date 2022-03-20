@@ -16,6 +16,9 @@
 
 package com.android.gdsc.mpstme.event
 
+import androidx.annotation.Keep
+
+@Keep
 class Event {
     var image: String? = null
     var url: String? = null

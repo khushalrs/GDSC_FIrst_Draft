@@ -16,6 +16,9 @@
 
 package com.android.gdsc.mpstme.achievements
 
+import androidx.annotation.Keep
+
+@Keep
 class Achievements {
     var name: String? = null
     var description: String? = null
