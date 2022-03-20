@@ -20,10 +20,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -58,9 +55,6 @@ class PastEventsActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        mProgressBar = findViewById(R.id.progress_bar)
-        mScrollView = findViewById(R.id.scroll_view)
-
         updateViews()
     }
 
@@ -92,19 +86,6 @@ class PastEventsActivity : AppCompatActivity() {
     }
 
     private fun updateViews() {
-        hideProgressBar(false)
         setEvents()
-    }
-
-    companion object {
-        private lateinit var mProgressBar: ProgressBar
-        private lateinit var mScrollView: ScrollView
-
-        fun hideProgressBar(hide: Boolean) {
-            if (mProgressBar.visibility != View.VISIBLE) return
-
-            mProgressBar.visibility = if (hide) View.GONE else View.VISIBLE
-            mScrollView.visibility = if (hide) View.VISIBLE else View.INVISIBLE
-        }
     }
 }

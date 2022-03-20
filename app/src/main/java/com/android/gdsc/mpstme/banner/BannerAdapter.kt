@@ -18,15 +18,21 @@ package com.android.gdsc.mpstme.banner
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import androidx.viewpager.widget.PagerAdapter
 import com.android.gdsc.mpstme.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 
 class BannerAdapter(private val context: Context, private val banner: ArrayList<Banner>) :
     PagerAdapter() {
@@ -37,8 +43,32 @@ class BannerAdapter(private val context: Context, private val banner: ArrayList<
         ) as LayoutInflater
         val itemView = layoutInflater.inflate(R.layout.banner, container, false)
         val imageView = itemView.findViewById<View>(R.id.banner_image) as ImageView
+        val progressBar = itemView.findViewById<View>(R.id.progress_bar) as ProgressBar
 
-        Glide.with(context).load(banner[position].image).into(imageView)
+        Glide.with(context)
+            .load(banner[position].image)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean,
+                ): Boolean {
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean,
+                ): Boolean {
+                    progressBar.visibility = View.GONE
+                    return false
+                }
+            })
+            .into(imageView)
         container.addView(itemView)
 
         if (banner[position].url != null) {

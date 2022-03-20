@@ -25,10 +25,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.RecyclerView
 import com.android.gdsc.mpstme.R
-import com.android.gdsc.mpstme.ui.triumphs.PastEventsActivity
-import com.android.gdsc.mpstme.ui.triumphs.TriumphsFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -70,9 +69,7 @@ class EventAdapter(
                     dataSource: DataSource?,
                     isFirstResource: Boolean,
                 ): Boolean {
-                    if (position == itemCount - 1 && TriumphsFragment._binding != null) {
-                        PastEventsActivity.hideProgressBar(true)
-                    }
+                    eventView.progressBar.visibility = View.GONE
                     return false
                 }
             })
@@ -93,5 +90,6 @@ class EventAdapter(
 
     class EventView(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.image)
+        val progressBar: ProgressBar = itemView.findViewById(R.id.progress_bar)
     }
 }
