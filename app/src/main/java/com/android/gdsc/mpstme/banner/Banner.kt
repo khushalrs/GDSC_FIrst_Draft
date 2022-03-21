@@ -21,5 +21,9 @@ import androidx.annotation.Keep
 @Keep
 class Banner {
     var image: String? = null
-    var url: String? = null
+    var action_url: String? = null
+    var action_name: String? = null
+    var title: String? = null
+    var subtitle: String? = null
+    var yt_id: String? = null
 }

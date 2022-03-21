@@ -20,6 +20,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.viewpager.widget.PagerAdapter
+import com.android.gdsc.mpstme.EventsScreenActivity
 import com.android.gdsc.mpstme.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -71,10 +73,14 @@ class BannerAdapter(private val context: Context, private val banner: ArrayList<
             .into(imageView)
         container.addView(itemView)
 
-        if (banner[position].url != null) {
+        if (banner[position].action_url != null) {
             imageView.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(banner[position].url)
+                val intent = Intent(context, EventsScreenActivity::class.java)
+                intent.putExtra("action_name", banner[position].action_name)
+                intent.putExtra("action_url", banner[position].action_url)
+                intent.putExtra("title", banner[position].title)
+                intent.putExtra("subtitle", banner[position].subtitle)
+                intent.putExtra("yt_id", banner[position].yt_id)
                 context.startActivity(intent)
             }
         }

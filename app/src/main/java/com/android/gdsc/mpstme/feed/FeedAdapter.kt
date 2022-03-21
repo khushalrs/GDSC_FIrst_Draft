@@ -21,12 +21,15 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.gdsc.mpstme.EventsScreenActivity
+import com.android.gdsc.mpstme.MainActivity
 import com.android.gdsc.mpstme.R
 import com.android.gdsc.mpstme.ui.home.HomeFragment
 import com.bumptech.glide.Glide
@@ -77,17 +80,20 @@ class FeedAdapter(
             })
             .into(post.image)
 
-        post.title.text = feed.title
+        post.main_title.text = feed.main_title
         post.description.text = feed.description
         post.author.text = feed.author
         post.date.text = feed.date
 
-        if (feed.url != null) {
-            post.card.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(feed.url)
-                context.startActivity(intent)
-            }
+        post.card.setOnClickListener {
+            val intent = Intent(context, EventsScreenActivity::class.java)
+            intent.putExtra("action_name", feed.action_name)
+            intent.putExtra("action_url", feed.action_url)
+            intent.putExtra("title", feed.title)
+            intent.putExtra("subtitle", feed.subtitle)
+            intent.putExtra("yt_id", feed.yt_id)
+            Log.i("yt_id", feed.yt_id.toString())
+            context.startActivity(intent)
         }
     }
 
@@ -98,7 +104,7 @@ class FeedAdapter(
     class Post(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val card: MaterialCardView = itemView.findViewById(R.id.post)
         val image: ImageView = itemView.findViewById(R.id.image)
-        val title: TextView = itemView.findViewById(R.id.title)
+        val main_title: TextView = itemView.findViewById(R.id.title)
         val description: TextView = itemView.findViewById(R.id.description)
         val author: TextView = itemView.findViewById(R.id.author)
         val date: TextView = itemView.findViewById(R.id.date)

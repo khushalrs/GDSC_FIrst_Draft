@@ -19,11 +19,15 @@ package com.android.gdsc.mpstme.feed
 import androidx.annotation.Keep
 
 @Keep
-class Feed {
+class Feed{
     var image: String? = null
-    var title: String? = null
+    var main_title: String? = null
     var description: String? = null
     var author: String? = null
     var date: String? = null
-    var url: String? = null
+    var action_url: String? = null
+    var action_name: String? = null
+    var title: String? = null
+    var subtitle: String? = null
+    var yt_id: String? = null
 }
